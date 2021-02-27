@@ -29,7 +29,7 @@ class _HomeState extends State<Home> {
       child: Padding(
         padding:
             const EdgeInsets.only(top: 100, left: 20, right: 20, bottom: 20),
-        child: Column(
+        child: ListView(
           children: [
             Image.asset(
               'assets/logo.png',
