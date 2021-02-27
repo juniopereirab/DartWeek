@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'app/views/Home.dart';
+
 void main() {
   runApp(App());
 }
@@ -9,27 +11,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('HomePage'),
-      ),
-      body: Container(),
+      theme: ThemeData.light(),
+      home: Home(),
     );
   }
 }
