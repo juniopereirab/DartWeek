@@ -1,7 +1,25 @@
 import 'package:app/app/components/CurrencyBox.dart';
+import 'package:app/app/controllers/homeController.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  HomeController homeController;
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  final TextEditingController toText = TextEditingController();
+  final TextEditingController fromText = TextEditingController();
+  HomeController homeController;
+
+  @override
+  void initState() {
+    super.initState();
+    homeController = HomeController(toText: toText, fromText: fromText);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,14 +37,34 @@ class Home extends StatelessWidget {
               height: 150,
             ),
             SizedBox(height: 50),
-            CurrencyBox(),
+            CurrencyBox(
+              selectedItem: homeController.toCurrency,
+              controller: toText,
+              items: homeController.currencies,
+              onChanged: (value) {
+                setState(() {
+                  homeController.toCurrency = value;
+                });
+              },
+            ),
             SizedBox(height: 10),
-            CurrencyBox(),
+            CurrencyBox(
+              selectedItem: homeController.fromCurrency,
+              controller: fromText,
+              items: homeController.currencies,
+              onChanged: (value) {
+                setState(() {
+                  homeController.fromCurrency = value;
+                });
+              },
+            ),
             SizedBox(height: 50),
             RaisedButton(
               color: Colors.amber,
-              onPressed: () {},
-              child: Text("Converter"),
+              onPressed: () {
+                homeController.convert();
+              },
+              child: Text("CONVERTER"),
             ),
           ],
         ),
