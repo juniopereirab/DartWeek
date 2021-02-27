@@ -1,3 +1,4 @@
+import 'package:app/app/components/CurrencyBox.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -17,53 +18,11 @@ class Home extends StatelessWidget {
               width: 150,
               height: 150,
             ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: SizedBox(
-                      height: 65,
-                      child: DropdownButton(
-                        isExpanded: true,
-                        underline: Container(
-                          height: 1,
-                          color: Colors.amber,
-                        ),
-                        items: [
-                          DropdownMenuItem(
-                            child: Text("Real"),
-                          ),
-                          DropdownMenuItem(
-                            child: Text("Dolar"),
-                          ),
-                        ],
-                        onChanged: (value) {},
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.amber),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.amber),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 50,
-            ),
+            SizedBox(height: 50),
+            CurrencyBox(),
+            SizedBox(height: 10),
+            CurrencyBox(),
+            SizedBox(height: 50),
             RaisedButton(
               color: Colors.amber,
               onPressed: () {},
